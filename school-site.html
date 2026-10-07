@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gyan Jyoti Vidyalaya (Sample School Website)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#eef0e2; --bg2:#e1e6d0; --ink:#1f3a2d; --muted:#4b6456; --line:#b4c0a6; --brush:#2d5441; --th:#2d5441; --thtx:#f3f5ea;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#13201a;--bg2:#192a21;--ink:#e6ebdd;--muted:#a7b9ab;--line:#33473c;--brush:#c7dcc4;--th:#27433a;}
+}
+:root[data-theme="dark"]{--bg:#13201a;--bg2:#192a21;--ink:#e6ebdd;--muted:#a7b9ab;--line:#33473c;--brush:#c7dcc4;--th:#27433a;}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font:400 1.05rem/1.7 Raleway,system-ui,sans-serif}
+a{color:inherit}
+a:focus-visible{outline:3px solid #fff;outline-offset:3px;box-shadow:0 0 0 6px #2d5441}
+.wrap{max-width:60rem;margin:0 auto;padding:0 1.5rem}
+
+/* hero */
+.hero{position:relative;min-height:max(34rem,90svh);overflow:hidden;display:flex;align-items:center;
+  background:linear-gradient(#7d9a88 0%,#a9bd9f 36%,#d9dcb3 68%,#d4c690 100%)}
+.hero nav{position:absolute;top:0;left:0;right:0;z-index:4;display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;padding:1.25rem 1.5rem;color:#fff;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase}
+.hero nav a{text-decoration:none;padding:.15rem .5rem}
+.hero nav a.on{background:#fff;color:#5b7a68;font-weight:600}
+.hero nav a:hover{text-decoration:underline;text-underline-offset:5px}
+.pines{position:absolute;left:0;bottom:16%;width:100%;height:46%;z-index:1;opacity:.55}
+.vines{position:absolute;right:3%;bottom:0;height:90%;width:auto;z-index:2}
+.field{position:absolute;left:0;right:0;bottom:0;height:19%;z-index:3;
+  background:repeating-linear-gradient(90deg,rgba(110,88,40,.28) 0 1px,transparent 1px 6px),linear-gradient(#d2c28a,#b8a468)}
+.copy{position:relative;z-index:5;padding:6rem 1.5rem 7rem;max-width:36rem;margin-left:max(0px,calc((100vw - 60rem)/2))}
+.copy h1{margin:0 0 1.2rem;font:400 clamp(4.2rem,15vw,9rem)/.85 "Sedgwick Ave Display","Permanent Marker",cursive;color:#fff;text-shadow:0 3px 0 rgba(31,58,45,.35)}
+.copy h1 span{display:block}
+.copy h1 span+span{margin-left:.9em}
+.copy p{margin:0 0 1.5rem;max-width:21rem;color:#173326;font-weight:600;text-shadow:0 0 12px rgba(255,255,255,.35)}
+.copy a.go{display:inline-block;border:2px solid #fff;color:#fff;text-decoration:none;padding:.5rem 1.4rem;border-radius:99px;font-weight:600;background:rgba(31,58,45,.35)}
+.copy a.go:hover{background:#fff;color:#2d5441}
+
+/* sections */
+.band{padding:4rem 0}
+h2{margin:0 0 1rem;font:400 clamp(2.3rem,6vw,3.3rem)/1 "Sedgwick Ave Display","Permanent Marker",cursive}
+h3{margin:0 0 .4rem;font-size:1.1rem}
+ul{padding:0;margin:0;list-style:none}
+.two{display:grid;gap:2rem 3rem;grid-template-columns:1fr}
+@media(min-width:760px){.two{grid-template-columns:1.2fr 1fr}}
+
+#about{background:#fde9a9;color:#3a2c0b}
+#about h2{color:#b4451f}
+.dots{display:flex;flex-wrap:wrap;gap:1rem;align-content:center;justify-content:center}
+.dot{width:8.2rem;height:8.2rem;border-radius:50%;display:grid;place-content:center;text-align:center;font-size:.85rem;line-height:1.25;color:#fff;transition:transform .25s}
+.dot b{display:block;font:400 2.6rem/1 "Sedgwick Ave Display",cursive}
+.dot:nth-child(1){background:#e4572e;transform:rotate(-6deg)}
+.dot:nth-child(2){background:#2a9d8f;transform:rotate(4deg)}
+.dot:nth-child(3){background:#3d4a9c;transform:rotate(-3deg)}
+.dot:hover{transform:rotate(0) scale(1.08)}
+
+#classes{background:#fffaf0;color:#2a2a2a}
+#classes h2{color:#3d4a9c}
+.stages{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr))}
+.stage{border-radius:18px;padding:1.5rem;color:#fff;transition:transform .25s}
+.stage:hover{transform:translateY(-6px)}
+.stage:nth-child(1){background:#e4572e}
+.stage:nth-child(2){background:#1f8a7e}
+.stage:nth-child(3){background:#3d4a9c}
+.stage .no{font:400 3.4rem/1 "Sedgwick Ave Display",cursive}
+.stage ul{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.9rem}
+.stage li{background:rgba(255,255,255,.2);border-radius:99px;padding:.15rem .75rem;font-size:.9rem}
+
+#computer-lab{background:#14213d;color:#e9edf7}
+#computer-lab h2{color:#ffb870}
+.steps li{padding:.8rem 0;border-top:1px solid rgba(233,237,247,.2)}
+.steps b{color:#ffb870;display:block}
+.screen{background:#0b1226;border-radius:12px;box-shadow:0 0 0 6px #243557;overflow:hidden;align-self:center}
+.bar{background:#243557;padding:.5rem .8rem;display:flex;gap:.4rem}
+.bar i{width:.7rem;height:.7rem;border-radius:50%;background:#e4572e}
+.bar i:nth-child(2){background:#f4b942}.bar i:nth-child(3){background:#2a9d8f}
+.code{margin:0;padding:1.1rem 1.2rem;font:.95rem/1.8 ui-monospace,Menlo,Consolas,monospace}
+.code span{display:block;overflow:hidden;white-space:nowrap;width:0;animation:type 1.4s steps(32) forwards}
+.code span:nth-child(2){animation-delay:1.5s}
+.code span:nth-child(3){animation-delay:3s}
+.code em{font-style:normal;color:#ffb870}
+@keyframes type{to{width:100%}}
+@media (prefers-reduced-motion:reduce){.code span{animation:none;width:100%}.dot,.stage,.note{transition:none}}
+
+#notices{background:#e3dcf7;color:#2b2150}
+#notices h2{color:#5b3fa8}
+.board{display:grid;gap:1.6rem;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));padding-top:.6rem}
+.note{position:relative;padding:1.6rem 1.2rem 1.2rem;box-shadow:0 6px 0 rgba(43,33,80,.12);transition:transform .25s}
+.note::before{content:"";position:absolute;top:-.5rem;left:50%;width:1rem;height:1rem;margin-left:-.5rem;border-radius:50%;background:#e4572e;box-shadow:0 2px 0 rgba(0,0,0,.25)}
+.note:nth-child(1){background:#ffe58a;transform:rotate(-2.5deg)}
+.note:nth-child(2){background:#ffc2d1;transform:rotate(1.8deg)}
+.note:nth-child(3){background:#bfe6f5;transform:rotate(-1.2deg)}
+.note:hover{transform:rotate(0) scale(1.04)}
+.note p{margin:0}
+
+#contact{background:#1f6b52;color:#f1f7ee}
+#contact h2{color:#ffe08a}
+dl{display:grid;grid-template-columns:max-content 1fr;margin:0}
+dt,dd{margin:0;padding:.7rem 0;border-top:1px solid rgba(241,247,238,.28)}
+dt{font-weight:600;padding-right:2rem;color:#ffe08a}
+details{border-top:1px solid rgba(241,247,238,.28);padding:.7rem 0}
+summary{cursor:pointer;font-weight:600}
+details p{margin:.5rem 0 0}
+summary:focus-visible,#contact a:focus-visible{outline:3px solid #ffe08a;outline-offset:3px;box-shadow:none}
+footer{background:#14221b;color:#eef0e2;padding:1.5rem 0;font-size:.95rem}
+footer p{margin:0}
+@media(max-width:700px){.vines{right:-14%;height:66%}.copy{padding-top:5.5rem}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="hero" id="home">
+  <nav aria-label="Main">
+    <a class="on" href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#classes">Classes</a>
+    <a href="#computer-lab">Computer lab</a>
+    <a href="#notices">Notices</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <svg class="pines" viewBox="0 0 1200 300" preserveAspectRatio="none" aria-hidden="true">
+    <defs><filter id="mist"><feGaussianBlur stdDeviation="3"/></filter></defs>
+    <path filter="url(#mist)" fill="#3f6150" d="M0 300 L45 110 L90 300Z M70 300 L130 60 L190 300Z M180 300 L225 130 L270 300Z M260 300 L320 80 L380 300Z M390 300 L430 150 L470 300Z M470 300 L525 100 L580 300Z M600 300 L650 140 L700 300Z M720 300 L780 70 L840 300Z M860 300 L905 120 L950 300Z M960 300 L1020 90 L1080 300Z M1090 300 L1140 130 L1200 300Z"/>
+  </svg>
+
+  <svg class="vines" viewBox="0 0 400 600" aria-hidden="true" fill="none" stroke-linecap="round">
+    <g stroke="#8a2f18" stroke-width="26">
+      <path d="M70 600 C40 490 130 430 145 335 C160 240 80 200 120 115 C140 65 205 55 225 95"/>
+      <path d="M210 600 C240 505 335 485 325 385 C315 295 250 285 272 205 C283 155 345 145 365 185" stroke-width="22"/>
+      <path d="M135 600 C150 545 205 560 225 520" stroke-width="18"/>
+    </g>
+    <g stroke="#f19a58" stroke-width="7" stroke-dasharray="0 21">
+      <path d="M70 600 C40 490 130 430 145 335 C160 240 80 200 120 115 C140 65 205 55 225 95"/>
+      <path d="M210 600 C240 505 335 485 325 385 C315 295 250 285 272 205 C283 155 345 145 365 185"/>
+    </g>
+  </svg>
+
+  <div class="copy">
+    <h1><span>grow</span><span>here.</span></h1>
+    <p>in a field of crowded classrooms, every child here is seen, heard and encouraged.</p>
+    <a class="go" href="#contact">Visit the school</a>
+  </div>
+  <div class="field"></div>
+</header>
+
+<main>
+  <section class="band" id="about">
+    <div class="wrap two">
+      <div>
+        <h2>Our school</h2>
+        <p>Gyan Jyoti Vidyalaya is a CBSE school for classes 1 to 10 in Nanded. We build strong basics in reading, maths and science, and we start computer learning early. Every child gets a teacher who knows their name. (A sample school made for a web design project.)</p>
+      </div>
+      <div class="dots">
+        <div class="dot"><span><b>30</b>students per class</span></div>
+        <div class="dot"><span><b>10</b>classes taught</span></div>
+        <div class="dot"><span><b>6</b>days a week</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="classes">
+    <div class="wrap">
+      <h2>Find your class</h2>
+      <div class="stages">
+        <article class="stage"><div class="no">1 to 5</div><h3>Primary</h3>
+          <ul><li>English</li><li>Hindi</li><li>Maths</li><li>EVS</li><li>Computer basics</li></ul></article>
+        <article class="stage"><div class="no">6 to 8</div><h3>Middle</h3>
+          <ul><li>English</li><li>Hindi</li><li>Marathi</li><li>Maths</li><li>Science</li><li>Social Science</li><li>Computer Science</li></ul></article>
+        <article class="stage"><div class="no">9 and 10</div><h3>Secondary</h3>
+          <ul><li>English</li><li>Maths</li><li>Science</li><li>Social Science</li><li>Information Technology</li></ul></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="computer-lab">
+    <div class="wrap two">
+      <div>
+        <h2>The computer lab</h2>
+        <ul class="steps">
+          <li><b>Classes 1 to 3</b>Typing and using a mouse safely</li>
+          <li><b>Classes 4 to 6</b>MS Word, paint and simple presentations</li>
+          <li><b>Classes 7 and 8</b>Basic programming and internet safety</li>
+          <li><b>Classes 9 and 10</b>Spreadsheets, HTML and CBSE Information Technology</li>
+        </ul>
+      </div>
+      <div class="screen" aria-label="Example of a first HTML lesson">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <pre class="code"><span><em>&lt;h1&gt;</em>Hello, class!<em>&lt;/h1&gt;</em></span><span><em>&lt;p&gt;</em>Today we build a page.<em>&lt;/p&gt;</em></span><span><em>&lt;a href="#"&gt;</em>Start lesson<em>&lt;/a&gt;</em></span></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="notices">
+    <div class="wrap">
+      <h2>Notice board</h2>
+      <div class="board">
+        <article class="note"><h3>Admissions open</h3><p>Classes 1 to 10. Visit the office any weekday.</p></article>
+        <article class="note"><h3>Coding club</h3><p>Every Friday after school in the computer lab.</p></article>
+        <article class="note"><h3>Chess corner</h3><p>Weekly chess practice for students of all levels.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="contact">
+    <div class="wrap two">
+      <div>
+        <h2>Come and visit</h2>
+        <dl>
+          <dt>Address</dt><dd>Main Road, Nanded, Maharashtra</dd>
+          <dt>Phone</dt><dd><a href="tel:+910000000000">+91 00000 00000</a></dd>
+          <dt>Email</dt><dd><a href="mailto:office@example.com">office@example.com</a></dd>
+          <dt>Hours</dt><dd>Monday to Saturday, 9 am to 4 pm</dd>
+        </dl>
+      </div>
+      <div>
+        <h2>Questions</h2>
+        <details><summary>How do I apply?</summary><p>Visit the school office with your child and a birth certificate.</p></details>
+        <details><summary>Which board do you follow?</summary><p>We follow the CBSE curriculum.</p></details>
+        <details><summary>Is there a school bus?</summary><p>Yes, routes cover most of Nanded.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><p>Gyan Jyoti Vidyalaya, Nanded. A sample site built with HTML and CSS.</p></div>
+</footer>
+
+</body>
+</html>
