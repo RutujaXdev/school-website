@@ -15,7 +15,7 @@ A responsive school website built with plain HTML and CSS.
 HTML5 and CSS3 (no JavaScript)
 
 ## Live demo
-https://YOUR-USERNAME.github.io/school-website
+(https://rutujaxdev.github.io/school-website)
 
 ## Author
 Rutuja Kulkarni, BCA graduate, Nanded
